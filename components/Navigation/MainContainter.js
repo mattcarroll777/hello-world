@@ -7,11 +7,13 @@ import { HomeScreen } from "./Screens/HomeScreen";
 import { MyDevicesScreen } from "./Screens/MyDevicesScreen";
 import { SettingsScreen } from "./Screens/SettingsScreen";
 import { ShopScreen } from "./Screens/ShopScreen";
+import { SearchScreen } from "./Screens/SearchScreen";
 
 const homeName = "Home";
 const myDevicesName = "MyDevices";
 const settingsName = "Settings";
 const shopName = "Shop";
+const searchName = "Search";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,10 +34,13 @@ export const MainContainer = () => {
               iconName = focused ? "settings" : "settings-outline";
             } else if (rn === shopName) {
               iconName = focused ? "basket" : "basket-outline";
+            } else if (rn === searchName) {
+              iconName = focused ? "search" : "search-outline";
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
+
         // tabBarOptions={{
         //   tabBarActiveTintColor: "tomato",
         //   tabBarInactiveTintCOlor: "grey",
@@ -46,6 +51,7 @@ export const MainContainer = () => {
         <Tab.Screen name={homeName} component={HomeScreen} />
         <Tab.Screen name={shopName} component={ShopScreen} />
         <Tab.Screen name={myDevicesName} component={MyDevicesScreen} />
+        <Tab.Screen name={searchName} component={SearchScreen} />
         <Tab.Screen name={settingsName} component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>

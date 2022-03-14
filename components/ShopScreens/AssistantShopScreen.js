@@ -1,15 +1,45 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, SectionList } from "react-native";
 
-export const AssistantShopScreen = () => {
+const DATA = [
+  {
+    title: "Promoted",
+    data: ["Alexa", "Cortona"],
+  },
+  {
+    title: "All",
+    data: [
+      "Siri",
+      "Google Assistant",
+      "Bixby",
+      "SegaEmulator",
+      "BOB",
+      "Samantha",
+      "Chris",
+      "Mike",
+      "Taylor",
+    ],
+  },
+];
+
+export const AssistantShopScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <View style={{ width: 250, backgroundColor: "yellow" }}>
-        <Text>Hello World!</Text>
-        <Text> My Name is Matt</Text>
-        <Text> This is My Ass Is Tant Shop Screen </Text>
-        <StatusBar style="auto" />
-      </View>
+      <SectionList
+        sections={DATA}
+        renderItem={({ item }) => (
+          <Text
+            style={styles.item}
+            onPress={() => navigation.navigate("SingleProgram")}
+          >
+            {item}
+          </Text>
+        )}
+        renderSectionHeader={({ section }) => (
+          <Text style={styles.sectionHeader}>{section.title}</Text>
+        )}
+        keyExtractor={(item, index) => index}
+      />
     </View>
   );
 };
@@ -18,7 +48,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
+  },
+  item: {
+    // backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8,
+  },
+  sectionHeader: {
+    fontSize: 32,
+    backgroundColor: "#fff",
   },
 });

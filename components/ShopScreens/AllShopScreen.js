@@ -19,23 +19,38 @@ export const AllShopScreen = ({ navigation }) => {
             resizeMode="contain"
           />
         </TouchableOpacity>
-        <Image
-          style={{ flex: 1, height: undefined, width: undefined }}
-          source={require("../../images/Ring.png")}
-          resizeMode="contain"
-        />
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Security")}
+          style={styles.container}
+        >
+          <Image
+            style={{ flex: 1, height: undefined, width: undefined }}
+            source={require("../../images/Ring.png")}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
       </View>
       <View style={[styles.container, { flexDirection: "row" }]}>
-        <Image
-          style={{ flex: 1, height: undefined, width: undefined }}
-          source={require("../../images/Nitendo64.png")}
-          resizeMode="contain"
-        />
-        <Image
-          style={{ flex: 1, height: undefined, width: undefined }}
-          source={require("../../images/Misc.png")}
-          resizeMode="contain"
-        />
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Game")}
+          style={styles.container}
+        >
+          <Image
+            style={{ flex: 1, height: undefined, width: undefined }}
+            source={require("../../images/Nitendo64.png")}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Misc")}
+          style={styles.container}
+        >
+          <Image
+            style={{ flex: 1, height: undefined, width: undefined }}
+            source={require("../../images/Misc.png")}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );

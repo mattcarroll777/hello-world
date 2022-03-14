@@ -1,24 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import * as React from "react";
+import { Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { AllMyDevicesScreen } from "../DeviceScreens/AllMyDevicesScreen";
+import { SingleDeviceScreen } from "../DeviceScreens/SingleDeviceScreen";
+
+const Stack = createNativeStackNavigator();
 
 export const MyDevicesScreen = () => {
   return (
-    <View style={styles.container}>
-      <View style={{ width: 250, backgroundColor: "yellow" }}>
-        <Text>Hello World!</Text>
-        <Text> My Name is Matt</Text>
-        <Text> This is My MyDevicesPage </Text>
-        <StatusBar style="auto" />
-      </View>
-    </View>
+    <NavigationContainer independent={true}>
+      <Stack.Navigator initialRouteName="All">
+        <Stack.Screen name="All" component={AllMyDevicesScreen} />
+        <Stack.Screen name="SingleDevice" component={SingleDeviceScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

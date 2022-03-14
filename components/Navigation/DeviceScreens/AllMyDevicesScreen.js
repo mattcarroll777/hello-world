@@ -1,34 +1,35 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SectionList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SectionList,
+  Image,
+  FlatList,
+} from "react-native";
 
 const DATA = [
-  {
-    title: "Promoted",
-    data: ["GoogleNest"],
-  },
-  {
-    title: "All",
-    data: ["Ring Doorbell", "ADT", "SimpliSafe", "Blink"],
-  },
+  { name: "MattsRaspberryPI" },
+  { name: "MattsSecurityCamera" },
+  { name: "LivingRoomTV" },
+  { name: "BedroomTV" },
+  { name: "CarAlexa" },
 ];
 
-export const SecurityShopScreen = ({ navigation }) => {
+export const AllMyDevicesScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <SectionList
-        sections={DATA}
+      <FlatList
+        data={DATA}
         renderItem={({ item }) => (
           <Text
             style={styles.item}
-            onPress={() => navigation.navigate("SingleProgram")}
+            onPress={() => navigation.navigate("SingleDevice")}
           >
-            {item}
+            {item.name}
           </Text>
         )}
-        renderSectionHeader={({ section }) => (
-          <Text style={styles.sectionHeader}>{section.title}</Text>
-        )}
-        keyExtractor={(item, index) => index}
+        keyExtractor={(item, index) => index.toString()}
       />
     </View>
   );
