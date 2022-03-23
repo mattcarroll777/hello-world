@@ -1,4 +1,5 @@
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,25 +7,31 @@ import {
   SectionList,
   Image,
   FlatList,
-} from "react-native";
+} from 'react-native';
 
 const DATA = [
-  { name: "MattsRaspberryPI" },
-  { name: "MattsSecurityCamera" },
-  { name: "LivingRoomTV" },
-  { name: "BedroomTV" },
-  { name: "CarAlexa" },
+  { name: 'MattsRaspberryPI' },
+  { name: 'MattsSecurityCamera' },
+  { name: 'LivingRoomTV' },
+  { name: 'BedroomTV' },
+  { name: 'CarAlexa' },
 ];
 
 export const AllMyDevicesScreen = ({ navigation }) => {
+  const [devices, setDevices] = useState([
+    { name: 'MattsRaspberryPI', program: 'GameBoyEmulator' },
+    { name: 'MattsSecurityCamera', program: 'RingDoorbell' },
+    { name: 'LivingRoomTV', program: 'Chromecast' },
+    { name: 'CarAlexa', program: 'Alexa' },
+  ]);
   return (
     <View style={styles.container}>
       <FlatList
-        data={DATA}
+        data={devices}
         renderItem={({ item }) => (
           <Text
             style={styles.item}
-            onPress={() => navigation.navigate("SingleDevice")}
+            onPress={() => navigation.navigate('SingleDevice', item)}
           >
             {item.name}
           </Text>
@@ -38,7 +45,7 @@ export const AllMyDevicesScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     // alignItems: "center",
     // justifyContent: "center",
   },
@@ -49,6 +56,6 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     fontSize: 32,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
 });

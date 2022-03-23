@@ -15,7 +15,7 @@ export const ShopScreen = () => {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName="All">
-        <Stack.Screen name="All" component={AllShopScreen} />
+        <Stack.Screen name="All Programs" component={AllShopScreen} />
         <Stack.Screen name="Assistant" component={AssistantShopScreen} />
         <Stack.Screen name="Game" component={GameShopScreen} />
         <Stack.Screen name="Security" component={SecurityShopScreen} />

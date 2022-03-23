@@ -26,7 +26,7 @@ export const HomeScreen = () => {
       <Text style={styles.head}>
         Hello, Today is {monthName} {day} {year}
       </Text>
-      <Text style={styles.head}>StackAThon App</Text>
+      <Text style={styles.head}>Matt Carroll's StackAThon App</Text>
       <Text style={styles.head}>Built the front-end of of a cellphone app</Text>
       <Text style={styles.head}>Using React Native</Text>
       <View style={styles.container}>
